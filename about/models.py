@@ -5,10 +5,7 @@ from django.contrib.auth.models import User
 class Admin(models.Model):
     title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
-    updated = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ["-created_on"]
+    updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} | written by {self.author}"
+        return self.title
